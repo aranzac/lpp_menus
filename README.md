@@ -1,8 +1,11 @@
-# Infonutricional
+# Infonutricional - Práctica 06 - TDD
+## Aranza Carolina Cabrera Castellano
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/infonutricional`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+En esta práctica vamos a diseñar pruebas sobre la información nutricional de los alimentos y las clases necesarias para que funcionen. Vamos a utilizar la gema Bundler de ruby para controlar las dependencias de nuestro proyecto.
+
+
+(La siguiente información en este documento corresponde al README generado automáticamente con bundle.)
 
 ## Installation
 
