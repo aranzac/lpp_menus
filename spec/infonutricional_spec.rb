@@ -7,7 +7,7 @@ RSpec.describe Infonutricional do
     @Galletas = Etiqueta.new("Galletas", 25.0,12.0,63.0,29.0,6.3,0.6, 4,40)
     @Arroz = Etiqueta.new("Arroz",1.1,0.3,74.0,0.0,8.4,0.0, 0,0)
     @Pan_molde = Etiqueta.new("Pan de molde",3.4,0.43,45.0,4.6,7.0,1.5, 14,25)
-    @Macarrones = Etiqueta.new("Macarrones", 1.9,0.8,71.8,3.5,11.5,0.008,0,0)
+    @Macarrones = Etiqueta.new("Macarrones", 1.9,0.8,71.8,3.5,11.5,0.08,0,0)
     @Atun = Etiqueta.new("Atun", 31.0,4.6,0.9,0.5,19.0,0.9, 6,80)
     @Ketchup = Etiqueta.new("Ketchup", 0.1,0.0,24.8,19.0,1.6,3.3,0,0)
   end
@@ -79,76 +79,76 @@ RSpec.describe Infonutricional do
       expect(@Ketchup.sal).not_to be nil
     end
     
-    # it "Existe un metodo para obtener el nombre" do
-    #   expect(@Crema_Chocolate.nombre).to eq("Crema de chocolate")
-    #   expect(@Galletas.nombre).to eq("Galletas")
-    #   expect(@Arroz.nombre).to eq("Arroz")
-    #   expect(@Pan_molde.nombre).to eq("Pan de molde")
-    #   expect(@Macarrones.nombre).to eq("Macarrones")
-    #   expect(@Atun.nombre).to eq("Atun")
-    #   expect(@Ketchup.nombre).to eq("Ketchup")
-    # end
+    it "Existe un metodo para obtener el nombre" do
+      expect(@Crema_Chocolate.nombre).to eq("Crema de chocolate")
+      expect(@Galletas.nombre).to eq("Galletas")
+      expect(@Arroz.nombre).to eq("Arroz")
+      expect(@Pan_molde.nombre).to eq("Pan de molde")
+      expect(@Macarrones.nombre).to eq("Macarrones")
+      expect(@Atun.nombre).to eq("Atun")
+      expect(@Ketchup.nombre).to eq("Ketchup")
+    end
     
-    # it "Existe un metodo para obtener la cantidad de grasas" do
-    #   expect(@Crema_Chocolate.grasas).to eq(30.9)
-    #   expect(@Galletas.grasas).to eq(25.0)
-    #   expect(@Arroz.grasas).to eq(1.1)
-    #   expect(@Pan_molde.grasas).to eq(3.4)
-    #   expect(@Macarrones.grasas).to eq(1.9)
-    #   expect(@Atun.grasas).to eq(31.0)
-    #   expect(@Ketchup.grasas).to eq(0.1)
-    # end
+    it "Existe un metodo para obtener la cantidad de grasas" do
+      expect(@Crema_Chocolate.grasas).to eq(30.9)
+      expect(@Galletas.grasas).to eq(25.0)
+      expect(@Arroz.grasas).to eq(1.1)
+      expect(@Pan_molde.grasas).to eq(3.4)
+      expect(@Macarrones.grasas).to eq(1.9)
+      expect(@Atun.grasas).to eq(31.0)
+      expect(@Ketchup.grasas).to eq(0.1)
+    end
   
-    # it "Existe un metodo para obtener la cantidad de grasas saturadas" do
-    #   expect(@Crema_Chocolate.saturadas).to eq(10.6)
-    #   expect(@Galletas.saturadas).to eq(12.0)
-    #   expect(@Arroz.saturadas).to eq(0.3)
-    #   expect(@Pan_molde.saturadas).to eq(0.43)
-    #   expect(@Macarrones.saturadas).to eq(0.8)
-    #   expect(@Atun.saturadas).to eq(4.6)
-    #   expect(@Ketchup.saturadas).to eq(0.0)
+    it "Existe un metodo para obtener la cantidad de grasas saturadas" do
+      expect(@Crema_Chocolate.saturadas).to eq(10.6)
+      expect(@Galletas.saturadas).to eq(12.0)
+      expect(@Arroz.saturadas).to eq(0.3)
+      expect(@Pan_molde.saturadas).to eq(0.43)
+      expect(@Macarrones.saturadas).to eq(0.8)
+      expect(@Atun.saturadas).to eq(4.6)
+      expect(@Ketchup.saturadas).to eq(0.0)
       
-    # end
+    end
   
-    # it "Existe un metodo para obtener la cantidad de hidratos de carbono" do
-    #   expect(@Crema_Chocolate.hidratos).to eq(57.5)
-    #   expect(@Galletas.hidratos).to eq(63.0)
-    #   expect(@Arroz.hidratos).to eq(74.0)
-    #   expect(@Pan_molde.hidratos).to eq(45.0)
-    #   expect(@Macarrones.hidratos).to eq(71.8)
-    #   expect(@Atun.hidratos).to eq(0.9)
-    #   expect(@Ketchup.hidratos).to eq(24.8)
-    # end
+    it "Existe un metodo para obtener la cantidad de hidratos de carbono" do
+      expect(@Crema_Chocolate.hidratos).to eq(57.5)
+      expect(@Galletas.hidratos).to eq(63.0)
+      expect(@Arroz.hidratos).to eq(74.0)
+      expect(@Pan_molde.hidratos).to eq(45.0)
+      expect(@Macarrones.hidratos).to eq(71.8)
+      expect(@Atun.hidratos).to eq(0.9)
+      expect(@Ketchup.hidratos).to eq(24.8)
+    end
   
-    # it "Existe un metodo para obtener la cantidad de azúcares" do
-    #   expect(@Crema_Chocolate.azucares).to eq(56.3)
-    #   expect(@Galletas.azucares).to eq(29.0)
-    #   expect(@Arroz.azucares).to eq(0.0)
-    #   expect(@Pan_molde.azucares).to eq(4.6)
-    #   expect(@Macarrones.azucares).to eq(3.5)
-    #   expect(@Atun.azucares).to eq(0.5)
-    #   expect(@Ketchup.azucares).to eq(19)
-    # end
+    it "Existe un metodo para obtener la cantidad de azúcares" do
+      expect(@Crema_Chocolate.azucares).to eq(56.3)
+      expect(@Galletas.azucares).to eq(29.0)
+      expect(@Arroz.azucares).to eq(0.0)
+      expect(@Pan_molde.azucares).to eq(4.6)
+      expect(@Macarrones.azucares).to eq(3.5)
+      expect(@Atun.azucares).to eq(0.5)
+      expect(@Ketchup.azucares).to eq(19)
+    end
     
-    # it "Existe un metodo para obtener la cantidad de proteínas" do
-    #   expect(@Crema_Chocolate.proteinas).to eq(6.3)
-    #   expect(@Galletas.proteinas).to eq(6.3)
-    #   expect(@Arroz.proteinas).to eq(8.4)
-    #   expect(@Pan_molde.proteinas).to eq(7)
-    #   expect(@Macarrones.proteinas).to eq(11.5)
-    #   expect(@Atun.proteinas).to eq(19)
-    #   expect(@Ketchup.proteinas).to eq(1.6)
-    # end
+    it "Existe un metodo para obtener la cantidad de proteínas" do
+      expect(@Crema_Chocolate.proteinas).to eq(6.3)
+      expect(@Galletas.proteinas).to eq(6.3)
+      expect(@Arroz.proteinas).to eq(8.4)
+      expect(@Pan_molde.proteinas).to eq(7)
+      expect(@Macarrones.proteinas).to eq(11.5)
+      expect(@Atun.proteinas).to eq(19)
+      expect(@Ketchup.proteinas).to eq(1.6)
+    end
   
-    # it "Existe un metodo para obtener la cantidad de sal" do
-    #   expect(@Crema_Chocolate.sal).to eq(0.107)
-    #   expect(@Galletas.sal).to eq(0.6)
-    #   expect(@Arroz.sal).to eq(0.0)
-    #   expect(@Pan_molde.sal).to eq(1.5)
-    #   expect(@Macarrones.sal).to eq(0.08)
-    #   expect(@Atun.sal).to eq(0.9)
-    #   expect(@Ketchup.sal).to eq(3.3)
-    # end
+    it "Existe un metodo para obtener la cantidad de sal" do
+      expect(@Crema_Chocolate.sal).to eq(0.107)
+      expect(@Galletas.sal).to eq(0.6)
+      expect(@Arroz.sal).to eq(0.0)
+      expect(@Pan_molde.sal).to eq(1.5)
+      expect(@Macarrones.sal).to eq(0.08)
+      expect(@Atun.sal).to eq(0.9)
+      expect(@Ketchup.sal).to eq(3.3)
+    end
     
     # # Valores energéticos en KJ de 4 de los alimentos 
     # it "Existe un metodo para obtener el valor energetico en Kj" do
