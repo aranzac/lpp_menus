@@ -19,5 +19,9 @@ require "infonutricional/version"
 	def get_IR
 	    (get_valor_energetico_KJ * tam_porcion / 8400).round
 	end
+	
+	def to_s
+	     "Nombre\tGrasas\tSaturadas\tHidratos\tAzucar\tProteinas\tSal\n#{@nombre}\t#{@grasas}\t#{@saturadas}\t#{@hidratos}\t#{@azucares}\t#{proteinas}\t#{@sal}"
+	end
   end
     
