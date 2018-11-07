@@ -150,27 +150,27 @@ RSpec.describe Infonutricional do
       expect(@Ketchup.sal).to eq(3.3)
     end
     
-    # # Valores energéticos en KJ de 4 de los alimentos 
-    # it "Existe un metodo para obtener el valor energetico en Kj" do
-    #   expect(@Crema_Chocolate.get_valor_energetico_KJ).to eq(2230.575)
-    #   expect(@Galletas.get_valor_energetico_KJ).to eq(2118.1)
-    #   expect(@Arroz.get_valor_energetico_KJ).to eq(1441.5)
-    #   expect(@Pan_molde.get_valor_energetico_KJ).to eq(1047.3)
-    #   expect(@Macarrones.get_valor_energetico_KJ).to eq(1488.4)
-    #   expect(@Atun.get_valor_energetico_KJ).to eq(1507.8)
-    #   expect(@Ketchup.get_valor_energetico_KJ).to eq(535)
-    # end
+    # Valores energéticos en KJ de 4 de los alimentos 
+    it "Existe un metodo para obtener el valor energetico en Kj" do
+      expect(@Crema_Chocolate.get_valor_energetico_KJ).to eq(2230.6)
+      expect(@Galletas.get_valor_energetico_KJ).to eq(2118.1)
+      expect(@Arroz.get_valor_energetico_KJ).to eq(1441.5)
+      expect(@Pan_molde.get_valor_energetico_KJ).to eq(1047.3)
+      expect(@Macarrones.get_valor_energetico_KJ).to eq(1488.4)
+      expect(@Atun.get_valor_energetico_KJ).to eq(1507.8)
+      expect(@Ketchup.get_valor_energetico_KJ).to eq(535)
+    end
     
-    # # Valores energéticos en Kcal de 3 de los alimentos
-    # it "Existe un metodo para obtener el valor energetico en Kcal" do
-    #   expect(@Crema_Chocolate.get_valor_energetico_Kcal).to eq(533.942)
-    #   expect(@Galletas.get_valor_energetico_Kcal).to eq(505.8)
-    #   expect(@Arroz.get_valor_energetico_Kcal).to eq(339.5)
-    #   expect(@Pan_molde.get_valor_energetico_Kcal).to eq(247.6)
-    #   expect(@Macarrones.get_valor_energetico_Kcal).to eq(350.78)
-    #   expect(@Atun.get_valor_energetico_Kcal).to eq(364)
-    #   expect(@Ketchup.get_valor_energetico_Kcal).to eq(126.3)
-    # end
+    # Valores energéticos en Kcal de 3 de los alimentos
+    it "Existe un metodo para obtener el valor energetico en Kcal" do
+      expect(@Crema_Chocolate.get_valor_energetico_Kcal).to eq(533.9)
+      expect(@Galletas.get_valor_energetico_Kcal).to eq(505.8)
+      expect(@Arroz.get_valor_energetico_Kcal).to eq(339.5)
+      expect(@Pan_molde.get_valor_energetico_Kcal).to eq(247.6)
+      expect(@Macarrones.get_valor_energetico_Kcal).to eq(350.8)
+      expect(@Atun.get_valor_energetico_Kcal).to eq(364)
+      expect(@Ketchup.get_valor_energetico_Kcal).to eq(126.3)
+    end
 
     # # Ingesta de referencia IR en aquellos alimentos divididos en porciones
     # it "Existe un metodo para obtener el valor de IR de por alimento" do
