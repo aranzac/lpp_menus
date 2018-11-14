@@ -37,5 +37,23 @@ class Lista
             @size += 1
         end
     end
+    
+    def extraer_head()
+        if(@size==0)
+            puts "La lista está vacía."
+        elsif (@size == 1)
+            saliente = Node.new(@head.value,nil,nil)
+            @head = Node.new(nil,nil,nil)
+            @tail = Node.new(nil,nil,nil)
+            @size -= 1
+            "#{saliente.value}"
+        elsif (@size > 1)
+            saliente = Node.new(@head.value,nil,nil)
+            @head.prev.next = nil
+            @head = @head.prev
+            @size -= 1
+            return saliente.value
+        end 
+    end
 
 end

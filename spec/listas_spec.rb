@@ -57,15 +57,11 @@ RSpec.describe Lista do
       expect(@lista.tail.value).to eq(@crema_Chocolate)
     end
 
-    it "Se puede extraer el primer elemento" do
-      expect(@lista.extraer_head()).to eq(@chocolate)
-      @lista.insertar_head(@chocolate)
+    it "Se puede extraer el último elemento insertado" do
+      expect(@lista.extraer_head()).to eq(@macarrones)
+      @lista.insertar_head(@macarrones)
     end
     
-    it "Se puede extraer el último elemento" do
-      @lista.insertar_head(@atun)
-      expect(@lista.extraer_tail()).to eq(@atun)
-    end
     
     it "Ver que el valor de sal es recomendado en todos los alimentos" do
         @elemento1 = @lista.extraer_tail
