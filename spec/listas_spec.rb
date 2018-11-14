@@ -1,4 +1,5 @@
 require "spec_helper"
+require './lib/infonutricional.rb'
 
 RSpec.describe Lista do
   before :all do
@@ -17,30 +18,30 @@ RSpec.describe Lista do
       expect(@lista.empty).to eq(true)
       expect(@lista.head.value).to eq(nil)
       expect(@lista.tail.value).to eq(nil)
-      expect(@lista.inicio.next).to eq(nil)
+      expect(@lista.head.next).to eq(nil)
       expect(@lista.size).to eq(0)
     end
-    
+  
     it "Existe el nodo inicio con next y prev vacios" do
-      expect(@lista.inicio.next).to eq(nil)
-      expect(@lista.inicio.prev).to eq(nil)
+      expect(@lista.head.next).to eq(nil)
+      expect(@lista.tail.prev).to eq(nil)
     end
     
     it "Existe el nodo final con next y prev vacios" do
-      expect(@lista.final.next).to eq(nil)
-      expect(@lista.final.prev).to eq(nil)
+      expect(@lista.head.next).to eq(nil)
+      expect(@lista.tail.prev).to eq(nil)
     end
     
     it "Se pueden insertar elementos en la lista" do
-      @lista.insertar(@chocolate)
+      @lista.insertar_head(@crema_Chocolate)
       expect(@lista.size).to eq(1)
-      @lista.insertar(@galletas)
+      @lista.insertar_head(@galletas)
       expect(@lista.size).to eq(2)
-      @lista.insertar(@arroz)
+      @lista.insertar_head(@arroz)
       expect(@lista.size).to eq(3)
-      @lista.insertar(@pan_molde)
+      @lista.insertar_head(@pan_molde)
       expect(@lista.size).to eq(4)
-      @lista.insertar(@macarrones)
+      @lista.insertar_head(@macarrones)
       expect(@lista.size).to eq(5)
     end
     
@@ -48,23 +49,21 @@ RSpec.describe Lista do
       expect(@lista.empty).to eq(false)
     end
     
-    it "El head es el primer elemento insertado" do
-      expect(@lista.head.prev).to eq(nil)
-      expect(@lista.head.value).to eq(@chocolate)
+    it "El head es el ultimo elemento insertado" do
+      expect(@lista.head.value).to eq(@macarrones)
     end
     
-    it "El tail es el último elemento insertado" do
-      expect(@lista.tail.next).to eq(nil)
-      expect(@lista.tail.value).to eq(@macarrones)
+    it "El tail es el primer elemento insertado" do
+      expect(@lista.tail.value).to eq(@crema_Chocolate)
     end
 
     it "Se puede extraer el primer elemento" do
       expect(@lista.extraer_head()).to eq(@chocolate)
-      @lista.insertar(@chocolate)
+      @lista.insertar_head(@chocolate)
     end
     
     it "Se puede extraer el último elemento" do
-      @lista.insertar(@atun)
+      @lista.insertar_head(@atun)
       expect(@lista.extraer_tail()).to eq(@atun)
     end
     
