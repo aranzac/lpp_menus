@@ -41,8 +41,10 @@ RSpec.describe Lista do
       expect(@lista.size).to eq(3)
       @lista.insertar_head(@pan_molde)
       expect(@lista.size).to eq(4)
-      @lista.insertar_head(@macarrones)
+      @lista.insertar_head(@atun)
       expect(@lista.size).to eq(5)
+      @lista.insertar_head(@macarrones)
+      expect(@lista.size).to eq(6)
     end
     
     it "La lista ya no es vacía" do
@@ -57,24 +59,28 @@ RSpec.describe Lista do
       expect(@lista.tail.value).to eq(@crema_Chocolate)
     end
 
-    it "Se puede extraer el último elemento insertado" do
+    it "Se puede extraer el último elemento insertadoo" do
       expect(@lista.extraer_head()).to eq(@macarrones)
       @lista.insertar_head(@macarrones)
     end
     
+    it("Comprobar que se acceden a los métodos de la clase infonutricional correctamente") do 
+      expect(@lista.extraer_head.sal).to eq(@macarrones.sal)
+      @lista.insertar_head(@macarrones)
+    end
     
     it "Ver que el valor de sal es recomendado en todos los alimentos" do
-        @elemento1 = @lista.extraer_tail
+        @elemento1 = @lista.extraer_head
         expect(@elemento1.sal).to be <= 6
-        @elemento2 = @lista.extraer_tail
+        @elemento2 = @lista.extraer_head
         expect(@elemento2.sal).to be <= 6
-        @elemento3 = @lista.extraer_tail()
+        @elemento3 = @lista.extraer_head()
         expect(@elemento3.sal).to be <= 6
-        @elemento4 = @lista.extraer_tail
+        @elemento4 = @lista.extraer_head
         expect(@elemento4.sal).to be <= 6
-        @elemento5 = @lista.extraer_tail
+        @elemento5 = @lista.extraer_head
         expect(@elemento5.sal).to be <= 6
-        @elemento6 = @lista.extraer_tail
+        @elemento6 = @lista.extraer_head
         expect(@elemento6.sal).to be <= 6
     end
   end

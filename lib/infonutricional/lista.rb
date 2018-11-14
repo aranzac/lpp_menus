@@ -46,7 +46,7 @@ class Lista
             @head = Node.new(nil,nil,nil)
             @tail = Node.new(nil,nil,nil)
             @size -= 1
-            "#{saliente.value}"
+            return saliente.value
         elsif (@size > 1)
             saliente = Node.new(@head.value,nil,nil)
             @head.prev.next = nil
