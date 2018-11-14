@@ -185,5 +185,6 @@ RSpec.describe Infonutricional do
       expect(@Crema_Chocolate.to_s).to eq("Nombre\tGrasas\tSaturadas\tHidratos\tAzucar\tProteinas\tSal\nCrema de chocolate\t30.9\t10.6\t57.5\t56.3\t6.3\t0.107")
     end
   end
-  
+
 end
+
