@@ -10,4 +10,12 @@ class Lista
         @size = 0
     end
     
+    def empty()
+        if (@size == 0)
+            return true
+        else
+            return false
+        end
+    end
+
 end
