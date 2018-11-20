@@ -1,9 +1,24 @@
-# Infonutricional - Práctica 06 - TDD
+# Prácticas TDD de Información Nutricional (Prácticas 06 - 07 - 08)
 ## Aranza Carolina Cabrera Castellano
-
 
 En esta práctica vamos a diseñar pruebas sobre la información nutricional de los alimentos y las clases necesarias para que funcionen. Vamos a utilizar la gema Bundler de ruby para controlar las dependencias de nuestro proyecto.
 
+Los ficheros que contienen las librerías están situados en /lib.
+Los ficheros de las pruebas están situados en /spec
+
+### Ficheros de pruebas por práctica
+
+#### Práctica 6: infonutricional_spec.rb
+#### Práctica 7: listas_spec.rb
+#### Práctica 8: paciente_spec.rb
+
+### Ejecución 
+
+Para la ejecución de los test ejecutar el siguiente comando:
+
+```ruby
+rake
+```
 
 (La siguiente información en este documento corresponde al README generado automáticamente con bundle.)
 
