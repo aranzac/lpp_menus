@@ -95,7 +95,7 @@ RSpec.describe Paciente do
         end
         
         it "Formateo de la información del individuo (to_s)" do
-            expect(@paciente1.to_s).to eq("\tID\tNombre\tApellido\tEdad\tSexo\tFecha\tOcupacion\tFumador\tTalla\tPeso\tCintura\tCadera\tBicipital\tTricipital\tSubescapular\tSuprailiaco\tBrazo\n1\tNatalia\tGutierrez\t36\tMujer\t10-12-86\tCantante\tSi\t1.6\t100.5\t47.5\t56.6\t58.2\t33.7\t80.5\t25.6\t42.3\n")
+            expect(@paciente1.to_s).to eq("\tID\tNombre\tApellido\tEdad\tSexo\tFecha\tOcupacion\tFumador\n1\tNatalia\tGutierrez\t36\tMujer\t10-12-86\tCantante\tSi\t\nTalla\tPeso\tCintura\tCadera\tBicipital\tTricipital\tSubescapular\tSuprailiaco\tBrazo\n1.6\t100.5\t47.5\t56.6\t58.2\t33.7\t80.5\t25.6\t42.3\n")
         end
         
         it "Insertar elementos en la lista" do
