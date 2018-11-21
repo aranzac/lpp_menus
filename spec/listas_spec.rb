@@ -10,7 +10,7 @@ RSpec.describe Lista do
     @pan_molde = Etiqueta.new("Pan de molde",3.4,0.43,45.0,4.6,7.0,1.5, 14,25)
     @ketchup = Etiqueta.new("Ketchup", 0.1,0.0,24.8,19.0,1.6,3.3,0,0)
     @macarrones = Etiqueta.new("Macarrones", 1.9,0.8,71.8,3.5,11.5,0.08,0,0)
-    @atun = Etiqueta.new("Atun", 31.0,4.6,0.9,0.5,19.0,0.9, 6,80)  
+    @atun = Etiqueta.new("Atun", 31.0,4.6,0.9,0.5,19.0,0.9, 6,80)
   end
   
   describe "Listas" do
@@ -61,7 +61,7 @@ RSpec.describe Lista do
     end
     
     it("Comprobar que se puede acceder a la sal del nodo") do 
-      expect(@lista.extraer_head.sal).to eq(@atun.sal)
+      expect(@lista.extraer_head.sal).to eq(@galletas.sal)
     end
     
     it "Ver que el valor de sal es recomendado en todos los alimentos" do
