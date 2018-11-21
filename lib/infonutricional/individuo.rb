@@ -28,4 +28,9 @@ class Paciente < Individuo
         @suprailiaco = pp
         @brazo = q
     end
+    
+    def imc 
+        @peso / (@talla * @talla)
+    end
+    
 end

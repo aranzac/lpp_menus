@@ -61,7 +61,7 @@ RSpec.describe Lista do
     end
     
     it("Comprobar que se puede acceder a la sal del nodo") do 
-      expect(@lista.extraer_head.sal).to eq(@atun.sal)
+      expect(@lista.extraer_head.sal).to eq(@galletas.sal)
     end
     
     it "Ver que el valor de sal es recomendado en todos los alimentos" do

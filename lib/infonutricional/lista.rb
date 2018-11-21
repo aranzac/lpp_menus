@@ -19,21 +19,20 @@ class Lista
     end
     
     def insertar_tail(valor)
-        elemento = Node.new(valor,@head,nil)
+        elemento = Node.new(valor,nil,nil)
         if (@size == 0)
           @tail = Node.new(valor,nil,nil)
           @head = @tail
           @size += 1
         elsif (@size == 1)
             @tail = elemento
-            @head.next = @tail
-            @tail.prev = @head
+            @tail.next = @head
+            @head.prev = @tail
             @size += 1
         elsif (@size > 1)
-            aux = Node.new(@tail.value,@tail.next,elemento)
-            aux.prev.next = aux
+            # @elemento.next = @tail
+            @tail.prev = elemento
             @tail = elemento
-            @tail.next.prev = @tail
             @size += 1
         end
     end
@@ -49,8 +48,8 @@ class Lista
             return saliente.value
         elsif (@size > 1)
             saliente = Node.new(@head.value,nil,nil)
-            @head.next.prev = nil
-            @head = @tail.next
+            @head = @head.prev
+            @head.next = nil
             @size -= 1
             return saliente.value
         end 
