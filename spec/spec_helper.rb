@@ -2,6 +2,7 @@ require "bundler/setup"
 require "infonutricional"
 require "infonutricional/infonutricional_clase.rb"
 require "infonutricional/lista.rb"
+require "infonutricional/individuo.rb"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
