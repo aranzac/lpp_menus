@@ -77,7 +77,7 @@ RSpec.describe Individuo do
         before :all do
             @Natalia = Individuo.new(1, "Natalia", "Gutierrez", 36, "Mujer", "10-12-86", "Cantante", "Si")
             @JuanCarlos = Individuo.new(2, "Juan Carlos", "Ozuna", 26, "Hombre", "13-03-92", "Panadero", "No")
-            @Carolina = Paciente.new(6, "Carolina", "Navarro", 27, "Mujer", "14-02-91", "Actor", "No",  1.65, 74.0, 76.5, 65.6, 12.6, 31.4, 77.2, 18.6, 55.5)
+            @Carolina = Paciente.new(6, "Carolina", "Navarro", 27, "Mujer", "14-02-91", "Actor", "No")
 
         end
         
