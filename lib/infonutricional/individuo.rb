@@ -2,9 +2,17 @@ class Individuo
     
     attr_accessor :id, :nombre, :apellido, :edad, :sexo, :fecha, :ocupacion, :fumador
     
+    include Comparable
+    
     def initialize(a, b, c, d, e, f, g, h)
         @id, @nombre, @apellido, @edad, @sexo, @fecha, @ocupacion, @fumador = a, b, c, d, e, f, g, h
     end
+    
+    def <=>(other)
+       return nil unless other.kind_of? Individuo
+       @edad <=> other.edad
+    end
+    
     
     def to_s
         @out = "\tID\tNombre\tApellido\tEdad\tSexo\tFecha\tOcupacion\tFumador\n"

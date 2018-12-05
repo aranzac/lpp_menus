@@ -67,17 +67,13 @@ RSpec.describe Individuo do
         it "Individuo incluye Comparable" do
             expect(Individuo.ancestors).to include(Comparable)
         end
-                
-        it "Existe el método <=>" do
-            expect(Individuo).to respond_to(:<=>)
-        end
     end
                 
     describe "Comparacion de dos indiviuos" do
         before :all do
             @Natalia = Individuo.new(1, "Natalia", "Gutierrez", 36, "Mujer", "10-12-86", "Cantante", "Si")
             @JuanCarlos = Individuo.new(2, "Juan Carlos", "Ozuna", 26, "Hombre", "13-03-92", "Panadero", "No")
-            @Carolina = Paciente.new(6, "Carolina", "Navarro", 27, "Mujer", "14-02-91", "Actor", "No")
+            @Carolina = Individuo.new(6, "Carolina", "Navarro", 27, "Mujer", "14-02-91", "Actor", "No")
 
         end
         

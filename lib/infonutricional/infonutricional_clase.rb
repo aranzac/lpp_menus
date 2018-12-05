@@ -2,8 +2,16 @@ class Etiqueta
     
     attr_accessor :nombre, :valorenergetico, :grasas, :saturadas, :hidratos, :azucares, :proteinas, :sal, :porciones, :tam_porcion
     
+    include Comparable
+    
+    def <=>(other)
+    	return nil unless other.kind_of? Etiqueta
+    	@valorenergetico <=> other.valorenergetico
+    end
+    
     def initialize(nombre,grasas,saturadas,hidratos,azucares,proteinas,sal,porciones,tam_porcion)
 		@nombre, @valorenergetico, @grasas, @saturadas, @hidratos, @azucares, @proteinas, @sal, @porciones, @tam_porcion = nombre, valorenergetico, grasas, saturadas, hidratos, azucares, proteinas, sal, porciones, tam_porcion
+		@valorenergetico = get_valor_energetico_KJ
 	end
 	
 	def get_valor_energetico_KJ
