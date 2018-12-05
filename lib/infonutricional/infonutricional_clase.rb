@@ -10,9 +10,9 @@ class Etiqueta
     end
     
     def initialize(nombre,grasas,saturadas,hidratos,azucares,proteinas,sal,porciones,tam_porcion)
-		@nombre, @valorenergetico, @grasas, @saturadas, @hidratos, @azucares, @proteinas, @sal, @porciones, @tam_porcion = nombre, valorenergetico, grasas, saturadas, hidratos, azucares, proteinas, sal, porciones, tam_porcion
-		@valorenergetico = get_valor_energetico_KJ
-	end
+        @nombre, @valorenergetico, @grasas, @saturadas, @hidratos, @azucares, @proteinas, @sal, @porciones, @tam_porcion = nombre, valorenergetico, grasas, saturadas, hidratos, azucares, proteinas, sal, porciones, tam_porcion
+        @valorenergetico = get_valor_energetico_KJ
+    end
 	
 	def get_valor_energetico_KJ
 	    ((@grasas * 37) + (@hidratos * 17) + (@proteinas * 17) + (@sal * 25)).round(1)

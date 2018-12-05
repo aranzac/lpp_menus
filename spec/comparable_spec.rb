@@ -67,6 +67,10 @@ RSpec.describe Individuo do
         it "Individuo incluye Comparable" do
             expect(Individuo.ancestors).to include(Comparable)
         end
+        
+        it "Existe el método <=>" do
+            expect(Individuo).to respond_to(:<=>)
+        end
     end
                 
     describe "Comparacion de dos indiviuos" do

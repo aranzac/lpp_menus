@@ -3,11 +3,25 @@ Node = Struct.new(:value, :next, :prev)
 class Lista
     
     attr_accessor :head, :tail, :size
-    
+
     def initialize()
         @head = Node.new(nil,nil,nil)
         @tail = Node.new(nil,nil,nil)
         @size = 0
+    end
+    
+
+    include Enumerable
+    
+    def each
+        i = @tail
+        f = @size
+        k = 0
+        while (k < f) do
+            yield i.value
+            i = i.prev
+            k = k+1
+        end
     end
     
     def empty()
@@ -17,9 +31,9 @@ class Lista
             return false
         end
     end
-    
+
     def insertar_tail(valor)
-        elemento = Node.new(valor,nil,nil)
+        elemento = Node.new(valor,nil,@head)
         if (@size == 0)
           @tail = Node.new(valor,nil,nil)
           @head = @tail

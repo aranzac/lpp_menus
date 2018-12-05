@@ -13,7 +13,6 @@ class Individuo
        @edad <=> other.edad
     end
     
-    
     def to_s
         @out = "\tID\tNombre\tApellido\tEdad\tSexo\tFecha\tOcupacion\tFumador\n"
         @out << @id.to_s
@@ -45,6 +44,7 @@ class Paciente < Individuo
         @talla = a
         @peso = b
     end
+  
     def initialize(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, pp, q)
         super(a, b, c, d, e, f, g, h)
         @talla = i
