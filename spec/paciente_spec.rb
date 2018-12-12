@@ -177,7 +177,6 @@ RSpec.describe Paciente do
             expect(@crema_Chocolate).to respond_to('get_valor_energetico_Kcal')
             expect(@crema_Chocolate).to respond_to('get_IR')
             expect(@crema_Chocolate).to respond_to('to_s')
-
         end
         
         it "Jerarquía de los objetos (is_a)" do
@@ -190,4 +189,132 @@ RSpec.describe Paciente do
             expect(@crema_Chocolate.kind_of? Object).to eq(true)
         end
     end    
+    
+    describe "Métodos de Menús Dietéticos" do
+        it "Peso teórico ideal" do
+            # (talla − 150) × 0,75 + 50
+            expect(@paciente1.peso_teorico_ideal()).to eq(57.5)
+            expect(@paciente2.peso_teorico_ideal()).to eq(61.25)
+            expect(@paciente3.peso_teorico_ideal()).to eq(72.5)
+            expect(@paciente4.peso_teorico_ideal()).to eq(68.75)
+            expect(@paciente5.peso_teorico_ideal()).to eq(50)
+            expect(@paciente6.peso_teorico_ideal()).to eq(61.25)
+        end
+        
+        it "Gasto energético basal" do
+            # gasto energetico basal
+            # (10 × peso) + (6,25 × talla) − (5 × edad) − 161
+            expect(@paciente1.gasto_energetico()).to eq(1664)
+            expect(@paciente2.gasto_energetico()).to eq(2661.25)
+            expect(@paciente3.gasto_energetico()).to eq(1617.8)
+            expect(@paciente4.gasto_energetico()).to eq(2653)
+            expect(@paciente5.gasto_energetico()).to eq(1377.5)
+            expect(@paciente6.gasto_energetico()).to eq(1475.3)
+        end
+        
+        it "Efecto termógeno de los alimentos" do
+            # efecto termogeno = gasto energetico basal × 0,10
+            expect(@paciente1.efecto_termogeno()).to eq(166.4)
+            expect(@paciente2.efecto_termogeno()).to eq(266.125)
+            expect(@paciente3.efecto_termogeno()).to eq(265.3)
+            expect(@paciente4.efecto_termogeno()).to eq(161.775)
+            expect(@paciente5.efecto_termogeno()).to eq(137.75)
+            expect(@paciente6.efecto_termogeno()).to eq(147.525)
+        end
+        
+        it "Gasto de Actividad Física" do
+            # gasto actividad f isica = gasto energetico basal × f actor actividad f isica
+            expect(@paciente1.gasto_actividad_fisica()).to eq(0)
+            expect(@paciente2.gasto_actividad_fisica()).to eq(319.35)
+            expect(@paciente3.gasto_actividad_fisica()).to eq(716.31)
+            expect(@paciente4.gasto_actividad_fisica()).to eq(875.585)
+            expect(@paciente5.gasto_actividad_fisica()).to eq(0)
+            expect(@paciente6.gasto_actividad_fisica()).to eq(177.03)
+        end
+        
+        it "Gasto Energético Total" do
+            # gasto energetico total = gasto energetico basal + efecto termogeno + gasto actividad f isica
+            expect(@paciente1.gasto_energetico_total()).to eq(1830.4)
+            expect(@paciente2.gasto_energetico_total()).to eq(3246.725)
+            expect(@paciente3.gasto_energetico_total()).to eq(3634.61)
+            expect(@paciente4.gasto_energetico_total()).to eq(2653.11)
+            expect(@paciente5.gasto_energetico_total()).to eq(1515.25)
+            expect(@paciente6.gasto_energetico_total()).to eq(1799.805)
+        end
+    end
+    
+    describe "Valoraciones nutricionales de Pacientes" do
+        
+        before :all do
+            @crema_chocolate = Etiqueta.new("Crema de chocolate", 30.9,10.6,57.5,56.3,6.3,0.107, 13.3,15)
+            @galletas = Etiqueta.new("Galletas", 25.0,12.0,63.0,29.0,6.3,0.6, 4,40)
+            @arroz = Etiqueta.new("Arroz",1.1,0.3,74.0,0.0,8.4,0.0, 0,0)
+            @pan_molde = Etiqueta.new("Pan de molde",3.4,0.43,45.0,4.6,7.0,1.5, 14,25)
+            @macarrones = Etiqueta.new("Macarrones", 1.9,0.8,71.8,3.5,11.5,0.08,0,0)
+            @atun = Etiqueta.new("Atun", 31.0,4.6,0.9,0.5,19.0,0.9, 6,80)
+            @ketchup = Etiqueta.new("Ketchup", 0.1,0.0,24.8,19.0,1.6,3.3,0,0)
+            @menu1 = [crema_chocolate,galletas]
+            @menu2 = [arroz,pan_molde,atun]
+            @menu3 = [ketchup,macarrones]
+            @menu4 = [atun,macarrones,crema_chocolate]
+            @menu5 = [atun,pan_molde,galletas]
+        end
+        
+        it "El Menu 1 cumple las exigencias caloricas del Paciente" do
+           kcal_menu = menu1.map{ |i| i.get_valor_energetico_KJ}
+           
+           total_kcal = kcal_menu.reduce(:+)
+           
+           gasto_ener_paciente = @paciente1.gasto_energetico_total
+           gasto_ener_paciente = gasto_ener_paciente * 0.10
+           
+           expect(total_kcal >= gasto_ener_paciente).to eq(true)
+        end
+        
+        it "El Menu 2 cumple las exigencias caloricas del Paciente" do
+           kcal_menu = menu2.map{ |i| i.get_valor_energetico_KJ}
+           
+           total_kcal = kcal_menu.reduce(:+)
+           
+           gasto_ener_paciente = @paciente1.gasto_energetico_total
+           gasto_ener_paciente = gasto_ener_paciente * 0.10
+           
+           expect(total_kcal >= gasto_ener_paciente).to eq(true)
+        end
+        
+        it "El Menu 3 cumple las exigencias caloricas del Paciente" do
+           kcal_menu = menu3.collect { |x| x.get_valor_energetico_KJ }
+           
+           total_kcal = kcal_menu.reduce(:+)
+           
+           gasto_ener_paciente = @paciente2.gasto_energetico_total
+           gasto_ener_paciente = gasto_ener_paciente * 0.10
+           
+           expect(total_kcal >= gasto_ener_paciente).to eq(true)
+        end
+        
+        it "El Menu 4 cumple las exigencias caloricas del Paciente" do
+           kcal_menu = menu3.collect { |x| x.get_valor_energetico_KJ }
+           
+           total_kcal = kcal_menu.reduce(:+)
+           
+           gasto_ener_paciente = @paciente2.gasto_energetico_total
+           gasto_ener_paciente = gasto_ener_paciente * 0.10
+           
+           expect(total_kcal >= gasto_ener_paciente).to eq(true)
+        end
+        
+        it "El Menu 5 cumple las exigencias caloricas del Paciente" do
+            
+           menu6 = menu1.zip(menu2)
+           kcal_menu = menu6.collect { |x| x.get_valor_energetico_KJ }
+           
+           total_kcal = kcal_menu.reduce(:+)
+           
+           gasto_ener_paciente = @paciente2.gasto_energetico_total
+           gasto_ener_paciente = gasto_ener_paciente * 0.10
+           
+           expect(total_kcal >= gasto_ener_paciente).to eq(true)
+        end
+    end
 end
