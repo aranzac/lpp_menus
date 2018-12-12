@@ -4,12 +4,12 @@ require './lib/infonutricional.rb'
 RSpec.describe Paciente do
     before :all do
         @lista = Lista.new()
-        @paciente1 = Paciente.new(1, "Natalia", "Gutierrez", 36, "Mujer", "10-12-86", "Cantante", "Si",  1.6, 100.5, 47.5, 56.6, 58.2, 33.7, 80.5, 25.6, 42.3)
-        @paciente2 = Paciente.new(2, "Juan Carlos", "Ozuna", 26, "Hombre", "13-03-92", "Panadero", "No",  1.65, 175.5, 73.5, 21.5, 27.5, 13.6, 52.7, 26.8, 90.1)
-        @paciente3 = Paciente.new(3, "Benito", "Martínez", 24, "Hombre", "10-03-94", "Agricultor", "Si",  1.80, 164.3, 64.0, 15.0, 28.5, 75.6, 68.6, 36.5, 48.7)
-        @paciente4 = Paciente.new(4, "Rebeca ", "Gomez", 24, "Mujer", "02-03-97", "Pintor", "No",  1.75, 80.5, 37.5, 69.7, 43.3, 40.0, 38.5, 60.5, 33.5)
-        @paciente5 = Paciente.new(5, "José", "Balvin", 33, "Hombre", "07-05-85", "Profesor", "Si",  1.50, 60.0, 79.4, 78.5, 63.5, 19.4, 50.5, 14.4, 16.2)
-        @paciente6 = Paciente.new(6, "Carolina", "Navarro", 27, "Mujer", "14-02-91", "Actor", "No",  1.65, 74.0, 76.5, 65.6, 12.6, 31.4, 77.2, 18.6, 55.5)
+        @paciente1 = Paciente.new(1, "Natalia", "Gutierrez", 36, "Mujer", "10-12-86", "Cantante", "Si",  1.6, 100.5, 47.5, 56.6, 58.2, 33.7, 80.5, 25.6, 42.3,0)
+        @paciente2 = Paciente.new(2, "Juan Carlos", "Ozuna", 26, "Hombre", "13-03-92", "Panadero", "No",  1.65, 175.5, 73.5, 21.5, 27.5, 13.6, 52.7, 26.8, 90.1,0.12)
+        @paciente3 = Paciente.new(3, "Benito", "Martínez", 24, "Hombre", "10-03-94", "Agricultor", "Si",  1.80, 164.3, 64.0, 15.0, 28.5, 75.6, 68.6, 36.5, 48.7,0.27)
+        @paciente4 = Paciente.new(4, "Rebeca ", "Gomez", 24, "Mujer", "02-03-97", "Pintor", "No",  1.75, 80.5, 37.5, 69.7, 43.3, 40.0, 38.5, 60.5, 33.5,0.54)
+        @paciente5 = Paciente.new(5, "José", "Balvin", 33, "Hombre", "07-05-85", "Profesor", "Si",  1.50, 60.0, 79.4, 78.5, 63.5, 19.4, 50.5, 14.4, 16.2,0)
+        @paciente6 = Paciente.new(6, "Carolina", "Navarro", 27, "Mujer", "14-02-91", "Actor", "No",  1.65, 74.0, 76.5, 65.6, 12.6, 31.4, 77.2, 18.6, 55.5,0.12)
     end 
     
     describe "Paciente" do
@@ -193,53 +193,53 @@ RSpec.describe Paciente do
     describe "Métodos de Menús Dietéticos" do
         it "Peso teórico ideal" do
             # (talla − 150) × 0,75 + 50
-            expect(@paciente1.peso_teorico_ideal()).to eq(57.5)
-            expect(@paciente2.peso_teorico_ideal()).to eq(61.25)
-            expect(@paciente3.peso_teorico_ideal()).to eq(72.5)
-            expect(@paciente4.peso_teorico_ideal()).to eq(68.75)
-            expect(@paciente5.peso_teorico_ideal()).to eq(50)
-            expect(@paciente6.peso_teorico_ideal()).to eq(61.25)
+            expect(@paciente1.peso_teorico_ideal).to eq(57.5)
+            expect(@paciente2.peso_teorico_ideal).to eq(61.25)
+            expect(@paciente3.peso_teorico_ideal).to eq(72.5)
+            expect(@paciente4.peso_teorico_ideal).to eq(68.75)
+            expect(@paciente5.peso_teorico_ideal).to eq(50)
+            expect(@paciente6.peso_teorico_ideal).to eq(61.25)
         end
         
         it "Gasto energético basal" do
             # gasto energetico basal
             # (10 × peso) + (6,25 × talla) − (5 × edad) − 161
-            expect(@paciente1.gasto_energetico()).to eq(1664)
-            expect(@paciente2.gasto_energetico()).to eq(2661.25)
-            expect(@paciente3.gasto_energetico()).to eq(1617.8)
-            expect(@paciente4.gasto_energetico()).to eq(2653)
-            expect(@paciente5.gasto_energetico()).to eq(1377.5)
-            expect(@paciente6.gasto_energetico()).to eq(1475.3)
+            expect(@paciente1.gasto_energetico).to eq(1664)
+            expect(@paciente2.gasto_energetico).to eq(2661.3)
+            expect(@paciente3.gasto_energetico).to eq(2653)
+            expect(@paciente4.gasto_energetico).to eq(1617.8)
+            expect(@paciente5.gasto_energetico).to eq(1377.5)
+            expect(@paciente6.gasto_energetico).to eq(1475.3)
         end
         
         it "Efecto termógeno de los alimentos" do
             # efecto termogeno = gasto energetico basal × 0,10
-            expect(@paciente1.efecto_termogeno()).to eq(166.4)
-            expect(@paciente2.efecto_termogeno()).to eq(266.125)
-            expect(@paciente3.efecto_termogeno()).to eq(265.3)
-            expect(@paciente4.efecto_termogeno()).to eq(161.775)
-            expect(@paciente5.efecto_termogeno()).to eq(137.75)
-            expect(@paciente6.efecto_termogeno()).to eq(147.525)
+            expect(@paciente1.efecto_termogeno).to eq(166.4)
+            expect(@paciente2.efecto_termogeno).to eq(266.1)
+            expect(@paciente3.efecto_termogeno).to eq(265.3)
+            expect(@paciente4.efecto_termogeno).to eq(161.8)
+            expect(@paciente5.efecto_termogeno).to eq(137.8)
+            expect(@paciente6.efecto_termogeno).to eq(147.5)
         end
         
         it "Gasto de Actividad Física" do
             # gasto actividad f isica = gasto energetico basal × f actor actividad f isica
-            expect(@paciente1.gasto_actividad_fisica()).to eq(0)
-            expect(@paciente2.gasto_actividad_fisica()).to eq(319.35)
-            expect(@paciente3.gasto_actividad_fisica()).to eq(716.31)
-            expect(@paciente4.gasto_actividad_fisica()).to eq(875.585)
-            expect(@paciente5.gasto_actividad_fisica()).to eq(0)
-            expect(@paciente6.gasto_actividad_fisica()).to eq(177.03)
+            expect(@paciente1.gasto_actividad_fisica).to eq(0)
+            expect(@paciente2.gasto_actividad_fisica).to eq(319.4)
+            expect(@paciente3.gasto_actividad_fisica).to eq(716.3)
+            expect(@paciente4.gasto_actividad_fisica).to eq(873.6)
+            expect(@paciente5.gasto_actividad_fisica).to eq(0)
+            expect(@paciente6.gasto_actividad_fisica).to eq(177.0)
         end
         
         it "Gasto Energético Total" do
             # gasto energetico total = gasto energetico basal + efecto termogeno + gasto actividad f isica
-            expect(@paciente1.gasto_energetico_total()).to eq(1830.4)
-            expect(@paciente2.gasto_energetico_total()).to eq(3246.725)
-            expect(@paciente3.gasto_energetico_total()).to eq(3634.61)
-            expect(@paciente4.gasto_energetico_total()).to eq(2653.11)
-            expect(@paciente5.gasto_energetico_total()).to eq(1515.25)
-            expect(@paciente6.gasto_energetico_total()).to eq(1799.805)
+            expect(@paciente1.gasto_energetico_total).to eq(1830.4)
+            expect(@paciente2.gasto_energetico_total).to eq(3246.8)
+            expect(@paciente3.gasto_energetico_total).to eq(3634.6)
+            expect(@paciente4.gasto_energetico_total).to eq(2653.2)
+            expect(@paciente5.gasto_energetico_total).to eq(1515.3)
+            expect(@paciente6.gasto_energetico_total).to eq(1799.8)
         end
     end
     
@@ -253,67 +253,67 @@ RSpec.describe Paciente do
             @macarrones = Etiqueta.new("Macarrones", 1.9,0.8,71.8,3.5,11.5,0.08,0,0)
             @atun = Etiqueta.new("Atun", 31.0,4.6,0.9,0.5,19.0,0.9, 6,80)
             @ketchup = Etiqueta.new("Ketchup", 0.1,0.0,24.8,19.0,1.6,3.3,0,0)
-            @menu1 = [crema_chocolate,galletas]
-            @menu2 = [arroz,pan_molde,atun]
-            @menu3 = [ketchup,macarrones]
-            @menu4 = [atun,macarrones,crema_chocolate]
-            @menu5 = [atun,pan_molde,galletas]
+            @menu1 = [@crema_chocolate,@galletas]
+            @menu2 = [@arroz,@pan_molde,@atun]
+            @menu3 = [@ketchup,@macarrones]
+            @menu4 = [@atun,@macarrones,@crema_chocolate]
+            @menu5 = [@atun,@pan_molde,@galletas]
         end
         
         it "El Menu 1 cumple las exigencias caloricas del Paciente" do
-           kcal_menu = menu1.map{ |i| i.get_valor_energetico_KJ}
+           kcal_menu = @menu1.map{ |i| i.get_valor_energetico_KJ}
            
            total_kcal = kcal_menu.reduce(:+)
            
-           gasto_ener_paciente = @paciente1.gasto_energetico_total
+           gasto_ener_paciente = @paciente1.gasto_energ
            gasto_ener_paciente = gasto_ener_paciente * 0.10
-           
+        #   expect(total_kcal).to eq(0)
            expect(total_kcal >= gasto_ener_paciente).to eq(true)
         end
         
         it "El Menu 2 cumple las exigencias caloricas del Paciente" do
-           kcal_menu = menu2.map{ |i| i.get_valor_energetico_KJ}
+           kcal_menu = @menu2.map{ |i| i.get_valor_energetico_KJ}
            
            total_kcal = kcal_menu.reduce(:+)
            
            gasto_ener_paciente = @paciente1.gasto_energetico_total
            gasto_ener_paciente = gasto_ener_paciente * 0.10
-           
+        #   expect(total_kcal).to eq(0)
            expect(total_kcal >= gasto_ener_paciente).to eq(true)
         end
         
         it "El Menu 3 cumple las exigencias caloricas del Paciente" do
-           kcal_menu = menu3.collect { |x| x.get_valor_energetico_KJ }
+           kcal_menu = @menu3.collect { |x| x.get_valor_energetico_KJ }
            
            total_kcal = kcal_menu.reduce(:+)
            
            gasto_ener_paciente = @paciente2.gasto_energetico_total
            gasto_ener_paciente = gasto_ener_paciente * 0.10
-           
+        #   expect(total_kcal).to eq(0)
            expect(total_kcal >= gasto_ener_paciente).to eq(true)
         end
         
         it "El Menu 4 cumple las exigencias caloricas del Paciente" do
-           kcal_menu = menu3.collect { |x| x.get_valor_energetico_KJ }
+           kcal_menu = @menu4.collect { |x| x.get_valor_energetico_KJ }
            
            total_kcal = kcal_menu.reduce(:+)
            
            gasto_ener_paciente = @paciente2.gasto_energetico_total
            gasto_ener_paciente = gasto_ener_paciente * 0.10
-           
+        #   expect(total_kcal).to eq(0)
            expect(total_kcal >= gasto_ener_paciente).to eq(true)
         end
         
         it "El Menu 5 cumple las exigencias caloricas del Paciente" do
             
-           menu6 = menu1.zip(menu2)
-           kcal_menu = menu6.collect { |x| x.get_valor_energetico_KJ }
+           menu6 = @menu1.zip(@menu2)
+           kcal_menu = menu6.collect { |x, index| x.get_valor_energetico_KJ }
            
            total_kcal = kcal_menu.reduce(:+)
            
            gasto_ener_paciente = @paciente2.gasto_energetico_total
            gasto_ener_paciente = gasto_ener_paciente * 0.10
-           
+        #   expect(total_kcal).to eq(0)
            expect(total_kcal >= gasto_ener_paciente).to eq(true)
         end
     end

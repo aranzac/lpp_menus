@@ -9,7 +9,7 @@ class Individuo
     # Método que inicializa el objeto con los parámetros pasados
     # @param a ID del individuo
     # @param b Nombre del individuo
-    # @param c Apellido del individuo
+    # @param c Apellidºo del individuo
     # @param d Edad del individuo
     # @param e Sexo del individuo
     # @param f Fecha de nacimiento del individuo
@@ -54,7 +54,7 @@ end
 # Clase Paciente. Hija de la clase Individuo
 class Paciente < Individuo
 
-    attr_accessor :talla, :peso , :cintura, :cadera, :bicipital, :tricipital, :subescapular, :suprailiaco, :brazo 
+    attr_accessor :talla, :peso , :cintura, :cadera, :bicipital, :tricipital, :subescapular, :suprailiaco, :brazo, :peso_ideal, :gasto_energ, :factor_act, :efecto_termo, :gasto_energ_total
     
     # Método que inicializa el objeto con los parámetros pasados
     # a Talla del individuo
@@ -62,6 +62,10 @@ class Paciente < Individuo
     def initialize(a,b)
         @talla = a
         @peso = b
+        @peso_ideal = peso_teorico_ideal
+        @gasto_energ = gasto_energetico
+        @efecto_termo = efecto_termogeno
+        @gasto_energ_total
     end
 
     # Método que inicializa el objeto con los parámetros pasados
@@ -82,7 +86,7 @@ class Paciente < Individuo
     # @param o Talla de subescapular del individuo
     # @param pp Talla de suprailiaco del individuo
     # @param q Talla de brazo del individuo
-    def initialize(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, pp, q)
+    def initialize(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, pp, q, r)
         super(a, b, c, d, e, f, g, h)
         @talla = i
         @peso = j
@@ -93,11 +97,41 @@ class Paciente < Individuo
         @subescapular = o
         @suprailiaco = pp
         @brazo = q
+        @factor_act = r
     end
     
     # Método que calcula el índice de masa corporal del individuo
     def imc 
         @peso / (@talla * @talla)
+    end
+    
+    # Método que calcula el peso teórico ideal
+    def peso_teorico_ideal
+      @peso_ideal = ((@talla - 1.50)*100 * 0.75 + 50).round(2)
+    end
+    
+    # Método que calcula el gasto energetico basal según hombres y mujeres
+    def gasto_energetico
+        if (@sexo == "Mujer")
+            @gasto_energ = ((10 * @peso) + (6.25 * @talla * 100) - (5 * @edad) - 161).round(1)
+        elsif(@sexo == "Hombre")
+            @gasto_energ = ((10 * @peso) + (6.25 * @talla * 100) - (5 * @edad) + 5).round(1)
+        end
+    end
+    
+    # Método que calcula el efecto termógeno
+    def efecto_termogeno
+        @efecto_termo = (@gasto_energ * 0.10).round(1)
+    end
+    
+    # Método que calcula el gasto de energía por actividad fisica
+    def gasto_actividad_fisica
+       @gasto_actividad = (@gasto_energ * @factor_act).round(1)
+    end
+    
+    
+    def gasto_energetico_total
+        @gasto_energ_total = (@gasto_energ + @efecto_termo + @gasto_actividad).round(1)
     end
     
     # Muestra la etiqueta de los individuos formateada
